@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div>1</div>
+    <!-- <div>1</div>
     <p>pppp</p>
     <span>span</span>
     <span>span</span>
@@ -20,98 +20,32 @@
     <p>pppp</p>
     <span>span</span>
     <span>span</span>
-    <div>4</div>
+    <div>4</div> -->
 </body>
-<script src="./index.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/ctor.js"></script>
+<script src="./js/dom.js"></script>
 <script>
-
+    // 测试 each 方法
     // var Jobj = J('div, span').each(function(){
     //     this.style.border = '1px dashed blue';
     // })
 
-    var divs = J('div')
+    // 测试 get 方法
+    /* var divs = J('div')
     var divArr = divs.get()
     var item1 = divs.get(1)
     var item2 = divs.get(4)
     var item3 = divs.get(-1)
-    var item4 = divs.get(-5)
+    var item4 = divs.get(-5)  */
 
-  /*  
-    var J = (function(){
-        function isArrayLike(array) {
-            var length = array && array.length
-            return typeof length === 'number' && length >= 0
-        }
 
-        function each(array, callback) {
-            var i, k;
-            if (isArrayLike(array)) {
-                for (i=0; i<array.length;i++) {
-                    if(callback.call(array[i], i, array[i]) === false) break;
-                }
-            } else {
-                for (k in array) {
-                    if(callback.call(array[k], k, array[k]) === false) break;
-                }
-            }
-            return array;
-        }
-
-        function map(array, callback) {
-            var i, k, res = [], tmp;
-            if (isArrayLike(array)) {
-                for (i=0; i<array.length; i++) {
-                    tmp = callback(array[i], i)
-                    if (tmp !== undefined) {
-                        res.push(tmp)
-                    }
-                }
-            } else {
-                for (k in array) {
-                    tmp = callback(array[k], k)
-                    if (tmp !== undefined) {
-                        res.push(tmp)
-                    }
-                }
-            }
-        }
-
-        function select(selector) {
-            return document.querySelectorAll(selector)
-        }
-        // 构造函数
-        function Jquery(selector) {
-            var list = select(selector);
-            // 将list中的每个元素依次加入到this中，并自增length
-            [].push.apply(this, list);
-            // 可加可不加
-            return this;
-        }
-        // 对外公开的方法
-        function J(selector) {
-            return J.fn.Jquery(selector);
-        }
-        // 重新映射原型结构
-        J.fn = J.prototype = {
-            Jquery: Jquery,
-            each: function(callback) {
-                each(this, callback);
-            },
-            map: function(callback) {
-                map(this, callback);
-            }
-        }
-        J.fn.Jquery.prototype = J.fn;
-        
-        return J;
-    })()
-
-    J.fn.method = 'a customer method' 
-    var obj = J('div, span')
-    obj.each(function(){
-        this.style.border = '1px dashed red'
+    J('body').get(0).appendChild(
+        J('<div id="dv" style="border:1px solid red; width: 200px; height: 70px">123</div>').get(0)
+    )
+    J('#dv').each(function (){
+        this.style.border = '1px solid blue'
     })
-    console.log(obj.method)
-    */
+
 </script>
 </html>

@@ -9,16 +9,11 @@
     
     Jquery.fn = Jquery.prototype = {
         constructor: Jquery,
-        init: function(selector) {
-            var list = select(selector);
-            push.apply(this, list);
-            return this;
-        },
         each: function(callback) {
-           return each(this, callback);
+           return Jquery.each(this, callback);
         },
         map: function(callback) {
-            return map(this, callback);
+            return Jquery.map(this, callback);
         },
         toArray: function() {
             // 1. each
@@ -47,16 +42,15 @@
             return this
         }
     }
-    Jquery.fn.init.prototype = Jquery.fn;
 
-    function isArrayLike(array) {
+    Jquery.isArrayLike = function(array) {
         var length = array && array.length
         return typeof length === 'number' && length >= 0
     }
 
-    function each(array, callback) {
+    Jquery.each = function(array, callback) {
         var i, k;
-        if (isArrayLike(array)) {
+        if (Jquery.isArrayLike(array)) {
             for (i=0; i<array.length;i++) {
                 if(callback.call(array[i], i, array[i]) === false) break;
             }
@@ -68,9 +62,9 @@
         return array;
     }
 
-    function map(array, callback) {
+    Jquery.map = function(array, callback) {
         var i, k, res = [], tmp;
-        if (isArrayLike(array)) {
+        if (Jquery.isArrayLike(array)) {
             for (i=0; i<array.length; i++) {
                 tmp = callback(array[i], i)
                 if (tmp !== undefined) {
@@ -88,10 +82,15 @@
         return res;
     }
 
-    function select(selector) {
+    Jquery.select = function(selector) {
         return document.querySelectorAll(selector)
     }
 
+    Jquery.extend = Jquery.fn.extend = function(obj) {
+        for (var k in obj) {
+            this[k] = obj[k];
+        }
+    }
 
     window.Jquery = window.J = Jquery;
 
