@@ -1,7 +1,6 @@
 (function (window) {
 
-    var arr = [],
-        push = arr.push;
+    var arr = [];
 
     function Jquery(selector) {
         return new Jquery.fn.init(selector);
@@ -9,6 +8,7 @@
     
     Jquery.fn = Jquery.prototype = {
         constructor: Jquery,
+        length: 0,
         each: function(callback) {
            return Jquery.each(this, callback);
         },
