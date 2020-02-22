@@ -40,6 +40,13 @@
                 }
             }
             return this
+        },
+        end: function() {
+            return this.prevObj || this;
+        },
+        pushStack: function(newObj) { 
+            newObj.prevObj = this;
+            return newObj;
         }
     }
 

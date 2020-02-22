@@ -6,99 +6,34 @@
     <title>Document</title>
     <style>
         div {
-            width: 100px;
-            height: 100px;
-            margin: 10px 0;
             border: 1px dashed blue;
         }
         p {
             border: 1px dotted red; 
         }
+        .black{
+            background-color: black;
+        }
     </style>
 </head>
 <body>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <!-- <div>1</div>
-    <p>pppp</p>
-    <span>span</span>
-    <span>span</span>
-    <div>2</div>
-    <span>span</span>
-    <p>pppp</p>
-    <span>span</span>
-    <span>span</span>
-    <div>3</div>
-    <span>span</span>
-    <p>pppp</p>
-    <span>span</span>
-    <span>span</span>
-    <div>4</div> -->
+    
 </body>
 <script src="./js/index.js"></script>
 <script src="./js/dom.js"></script>
 <script src="./js/ctor.js"></script>
+<script src="./js/event.js"></script>
+<script src="js/style.js"></script>
+<script src="js/attr.js"></script>
 
 <script>
-    // 测试 each 方法
-    // var Jobj = J('div, span').each(function(){
-    //     this.style.border = '1px dashed blue';
+
+    // J('#btn1').click(function(){
+    //     J('#btn2').prop('disabled',true);
     // })
 
-    // 测试 get 方法
-    /* var divs = J('div')
-    var divArr = divs.get()
-    var item1 = divs.get(1)
-    var item2 = divs.get(4)
-    var item3 = divs.get(-1)
-    var item4 = divs.get(-5)  */
 
-
-    // J('body').get(0).appendChild(
-    //     J('<div id="dv" style="border:1px solid red; width: 200px; height: 70px">123</div>').get(0)
-    // )
-    // J('#dv').each(function (){
-    //     this.style.border = '1px solid blue'
-    // })
-
-    var arr = [],
-        push = arr.push;
-
-    Jquery.fn.appendTo = function(selector) {
-        var jobj = Jquery(selector),
-            jNewObj = Jquery(),
-            tmp,
-            res = [],
-            len = jobj.length,
-            i;
-
-        this.each(function(){
-            for(i=0;i<len;i++){
-                tmp =  i == len - 1 ? this : this.cloneNode(true);
-                jobj[i].appendChild(tmp);
-                res.push(tmp);
-            }
-        });
-
-        push.apply(jNewObj, res);
-
-        return jNewObj;
-    }
-
-    var j1 = J('<p>p1p1p1</p>');
-    var j2 = j1.appendTo(J('div').get(1));
-
-    var j3 = J('<p>p2p2p2</p>');
-    var j4 = j3.appendTo('div');
-    // J('<span style="color: red; font-size: 50px;">span</span>').appendTo(J('div'))
-
-    // var jobj1 = J('div')
-    // var jobj2 = J(jobj1)
-
-
-
-
+    J('<div></div>').appendTo('body').text('123<span style="color: red;">456</span>789');
+    J('<input />').appendTo('body').val('fieguieiehgie');
 </script>
 </html>

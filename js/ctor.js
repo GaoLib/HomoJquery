@@ -1,4 +1,4 @@
-(function() {
+(function(window) {
     var Jquery = window.Jquery,
         J = Jquery
         arr = [],
@@ -41,7 +41,7 @@
         }
         // 处理函数
         if (typeof selector == 'function') {
-
+            window.addEventListener('load', selector);
         }
     }
 
